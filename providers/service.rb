@@ -16,7 +16,7 @@ def load_current_resource
   @basedir = new_resource.base_directory || Logstash.get_attribute_or_default(node, @instance, 'basedir')
   @templates_cookbook = new_resource.templates_cookbook || Logstash.get_attribute_or_default(node, @instance, 'service_templates_cookbook')
   @service_name = new_resource.service_name || "logstash_#{@instance}"
-  @home = "#{@basedir}/#{@instance}"
+  @home = "#{@basedir}/#{@instance}" || Logstash.get_attribute_or_default(node, @instance, 'home')
   @init_method = new_resource.init_method || Logstash.get_attribute_or_default(node, @instance, 'init_method')
   @command = new_resource.command || "#{@home}/bin/logstash"
   @user = new_resource.user || Logstash.get_attribute_or_default(node, @instance, 'user')

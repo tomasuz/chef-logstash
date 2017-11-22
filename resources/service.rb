@@ -21,3 +21,4 @@ attribute :templates_cookbook, kind_of: String
 attribute :runit_run_template_name, kind_of: String
 attribute :runit_log_template_name, kind_of: String
 attribute :base_directory, kind_of: String
+attribute :home, kind_of: String
